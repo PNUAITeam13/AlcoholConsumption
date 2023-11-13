@@ -1,6 +1,6 @@
 import seaborn
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
+from sklearn.preprocessing import OrdinalEncoder
 
 import pandas as pd
 import numpy as np
@@ -66,4 +66,11 @@ class VizualLib:
         plt.hist(self.__data[col], bins=bins, ec='black', color='#2196f3')
         plt.xlabel(col)
         plt.ylabel(self.__target.name)
+        plt.show()
+
+
+    @staticmethod
+    def scatter(X, y, result, line_color='pink', dots_color='gray'):
+        plt.scatter(X, y, color=line_color)
+        plt.plot(X.to_numpy(), result, color=dots_color)
         plt.show()
