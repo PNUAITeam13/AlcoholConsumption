@@ -1,9 +1,7 @@
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
 
-class LinearRegression():
+class LinearRegression:
 
     def __init__(self, n_estimators, learning_rate):
         self.__n_estimators = n_estimators
