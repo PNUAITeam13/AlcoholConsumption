@@ -2,6 +2,7 @@ import numpy as np
 
 
 class LinearRegressionMultipleFeatures:
+    
     def __init__(self, n_estimators, learning_rate):
         self.__n_estimators = n_estimators
         self.__learning_rate = learning_rate
