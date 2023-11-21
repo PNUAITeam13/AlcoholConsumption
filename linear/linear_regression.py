@@ -39,7 +39,8 @@ class LinearRegression:
         self.__keys = [X.columns[column_index], y.name]
 
         for i in range(self.__n_estimators):
-            self.__m, self.__b = self.__gradient_descent(self.__m, self.__b, points)
+            self.__m, self.__b = self.__gradient_descent(
+                self.__m, self.__b, points)
 
         return self.__m, self.__b
 
