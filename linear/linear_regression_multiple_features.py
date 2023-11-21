@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class LinearRegressionMultipleFeatures:
     def __init__(self, n_estimators, learning_rate):
         self.__n_estimators = n_estimators
@@ -15,7 +16,7 @@ class LinearRegressionMultipleFeatures:
     def loss_function(self, X, y):
         predictions = self.predict(X)
         errors = predictions - y
-        loss = np.mean(errors**2) / 2
+        loss = np.mean(errors ** 2) / 2
         return loss
 
     def fit(self, X, y):
