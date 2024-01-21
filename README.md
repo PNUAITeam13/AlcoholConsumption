@@ -58,3 +58,9 @@ To determine the student's final grades based on their alcohol consumption and t
 - **Dalc**
 - **Walc**
 - **absences**
+
+## Selected features for prediction
+
+
+![image](https://github.com/PNUAITeam13/AlcoholConsumption/assets/99980555/a663d0df-e472-42fe-8982-6f95a7b487a6)
+
