@@ -1,7 +1,8 @@
 import numpy as np
 from functools import wraps
 
-class MetricsWrapper():
+
+class MetricsWrapper:
     @staticmethod
     def np_array(func):
         @wraps(func)
@@ -10,7 +11,8 @@ class MetricsWrapper():
 
         return wrapper
 
-class Metrics():
+
+class Metrics:
 
     @staticmethod
     @MetricsWrapper.np_array
@@ -21,7 +23,6 @@ class Metrics():
         """
         return np.mean(np.abs(y_test - y_pred))
 
-    
     @staticmethod
     @MetricsWrapper.np_array
     def mean_squared_error(y_test, y_pred):
@@ -31,7 +32,6 @@ class Metrics():
         """
         return np.mean((y_test - y_pred) ** 2)
 
-    
     @staticmethod
     @MetricsWrapper.np_array
     def r2_score(y_test, y_pred):
@@ -46,12 +46,20 @@ class Metrics():
         denominator = np.sum((y_test - np.mean(y_pred)) ** 2)
         return 1 - (numerator / denominator)
 
-    
     @staticmethod
-    def show_our_matrics(model_name, y_test, y_pred):
+    @MetricsWrapper.np_array
+    def max_error(y_test, y_pred):
+        """
+        max_err = max(abs(y_t - y_p) for y_t, y_p in zip(y_true, y_pred))
+        return max_err
+        """
+        return np.max(np.abs(y_test - y_pred))
+
+    @staticmethod
+    def show_our_metrics(model_name, y_test, y_pred):
         print("\n-------\n")
         print(f"{model_name} MAE: {Metrics.mean_absolute_error(y_test, y_pred)}")
         print(f"{model_name} MSE: {Metrics.mean_squared_error(y_test, y_pred)}")
         print(f"{model_name} R2: {Metrics.r2_score(y_test, y_pred)}")
+        print(f"{model_name} Max Error: {Metrics.max_error(y_test, y_pred)}")
         print("\n-------\n")
-    
